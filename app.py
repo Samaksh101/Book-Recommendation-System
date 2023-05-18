@@ -108,7 +108,7 @@ def recommendations(user_id):
             "cover": image
             }
 
-            return render_template('book_details.html', recipe=selected_item, book=book)
+            return render_template('./book_details.html', recipe=selected_item, book=book)
 
     # get top k recommendations for user
     user_id = int(user_id)
@@ -117,7 +117,7 @@ def recommendations(user_id):
     for recommendation in recommendations:
         rec.append((recommendation,final_ratings[final_ratings['ISBN'] == recommendation]['Book-Title'].values[0]))
     # render template for recommendation page
-    return render_template('recommendations.html', user_id=user_id, recommendations=rec)
+    return render_template('./recommendations.html', user_id=user_id, recommendations=rec)
 
 if __name__ == '__main__':
     app.run(debug=True)
