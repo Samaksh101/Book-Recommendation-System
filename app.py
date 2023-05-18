@@ -76,7 +76,7 @@ def login():
         else:
             error = 'Invalid credentials'
     # return render_template('login.html', error=error)
-    return render_template('index.html', error=error)
+    return render_template('./index.html', error=error)
 
 # define route for recommendation page
 @app.route('/recommendations/<user_id>', methods=['GET', 'POST'])
