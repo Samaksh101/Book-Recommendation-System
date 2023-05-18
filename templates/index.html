@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      h1{
+        text-align: center;
+      }  
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+      form {
+        background-color: white;
+        border: 1px solid #ccc;
+        margin: auto;
+        padding: 20px;
+        width: 500px;
+      }
+      input[type=text], input[type=password] {
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      button[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button[type=submit]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form method="POST">
+      <label for="user_id"><b>User ID</b></label>
+      <input type="text" placeholder="Enter User ID" name="user_id" required>
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

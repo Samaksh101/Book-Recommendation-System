@@ -1,0 +1,253 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Recommendations</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+      form {
+        background-color: white;
+        border: 1px solid #ccc;
+        margin: auto;
+        padding: 20px;
+        width: 700px;
+      }
+      table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      input[type=radio] {
+        margin: 0;
+        width: auto;
+      }
+      input[type=number] {
+        margin: 8px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      button[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+      }
+      button[type=submit]:hover {
+        background-color: #45a049;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      label {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .feedback {
+        background-color: white;
+        border: 1px solid #ccc;
+        margin-top: 50px;
+        padding: 20px;
+        width: 700px;
+      }
+      .feedback h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .feedback p {
+        font-size: 20px;
+        line-height: 30px;
+        margin: 0;
+      }
+      .satisfied {
+        color: #4CAF50;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .not-satisfied {
+        color: #f44336;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Top 5 Recommendations for User {{ user_id }}</h1>
+    <form method="POST">
+      <table>
+        <tr>
+          <th>ISBN</th>  
+          <th>Book</th>
+          <th>Rate</th>
+        </tr>
+        {% for book in recommendations %}
+        <tr>
+          <td>{{ book[0] }}</td>  
+          <td>{{ book[1] }}</td>
+          <td><input type="radio" name="selected_item" value="{{ book[0] }}"></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <label for="rating">Rating (0-10):</label>
+      <input type="number" name="rating" id="rating" min="0" max="10" required>
+      <p>Are you satisfied with the recommendation?</p>
+      <input type="radio" name="satisfied" value="yes" required> Yes<br>
+      <input type="radio" name="satisfied" value="no"> No<br>
+      <button type="submit">Submit</button>
+    </form> -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recommendations</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+		}
+	form {
+		background-color: white;
+		border: 1px solid #ccc;
+		margin: auto;
+		padding: 20px;
+		width: 700px;
+	}
+	
+	table {
+		border-collapse: collapse;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	
+	th, td {
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: left;
+	}
+	
+	th {
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	tr:hover {
+		background-color: #f5f5f5;
+	}
+	
+	input[type=radio] {
+		margin: 0;
+		width: auto;
+	}
+	
+	input[type=number] {
+		margin: 8px 0;
+		padding: 10px;
+		border: 1px solid #ccc;
+		width: 100%;
+	}
+	
+	button[type=submit] {
+		background-color: #4CAF50;
+		color: white;
+		padding: 10px 20px;
+		border: none;
+		cursor: pointer;
+		margin-top: 10px;
+		width: 100%;
+	}
+	
+	button[type=submit]:hover {
+		background-color: #45a049;
+	}
+	
+	h1 {
+		text-align: center;
+		margin-top: 50px;
+	}
+	
+	label {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	.feedback {
+		background-color: white;
+		border: 1px solid #ccc;
+		margin-top: 50px;
+		padding: 20px;
+		width: 700px;
+	}
+	
+	.feedback h2 {
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	
+	.feedback p {
+		font-size: 20px;
+		line-height: 30px;
+		margin: 0;
+	}
+	
+	.satisfied {
+		color: #4CAF50;
+		font-size: 24px;
+		font-weight: bold;
+	}
+	
+	.not-satisfied {
+		color: #f44336;
+		font-size: 24px;
+		font-weight: bold;
+	}
+</style>
+</head>
+<body>
+	<h1>Top 5 Recommendations for User {{ user_id }}</h1>
+	<form method="POST">
+		<table>
+			<thead>
+				<tr>
+					<th>ISBN</th>
+					<th>Book</th>
+					<th>Rate</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for book in recommendations %}
+				<tr>
+					<td>{{ book[0] }}</td>
+					<td>{{ book[1] }}</td>
+					<td><input type="radio" name="selected_item" value="{{ book[0] }}"></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+        <label for="rating">Rating (0-10):</label>
+        <input type="number" name="rating" id="rating" min="0" max="10" required>
+        <p>Are you satisfied with the recommendation?</p>
+        <input type="radio" name="satisfied" value="yes" required> Yes<br>
+        <input type="radio" name="satisfied" value="no"> No<br>
+        <button type="submit">Submit</button>
+      </form>

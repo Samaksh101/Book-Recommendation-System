@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Info</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+		
+		img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		
+		h1 {
+			font-size: 28px;
+			margin-bottom: 10px;
+		}
+		
+		p {
+			font-size: 18px;
+			margin: 5px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 id="book-title">Book Details</h1>
+        <img id="book-cover" src="{{ book.cover }}" alt="Book Cover">
+		<h1 id="book-title">{{ book.title }}</h1>
+		<p>Author Name: <span id="author-name">{{ book.author }}</span></p>
+		<p>Publisher Name: <span id="publisher-name">{{ book.publisher }}</span></p>
+		<p>Publication Year: <span id="publication-year">{{ book.year }}</span></p>
+	</div>
+</body>
+</html>
