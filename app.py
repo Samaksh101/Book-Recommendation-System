@@ -9,11 +9,11 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 # Getting Final Ratings Table
-final_ratings = pd.read_csv('D:/Hiren/MTech/Semester 2/Recommendation System/Item_Item_Collaborative/ratings_final.csv')
+final_ratings = pd.read_csv('./ratings_final.csv')
 # Fetching train data
-train_data = pd.read_csv('D:/Hiren/MTech/Semester 2/Recommendation System/Item_Item_Collaborative/train.csv')
+train_data = pd.read_csv('./train.csv')
 # Fetching test data
-test_data = pd.read_csv('D:/Hiren/MTech/Semester 2/Recommendation System/Item_Item_Collaborative/test.csv')
+test_data = pd.read_csv('./test.csv')
 
 # create pivot table for train data
 train_pt = train_data.pivot_table(index='ISBN', columns='User-ID', values='Book-Rating')
